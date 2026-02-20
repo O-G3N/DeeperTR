@@ -11,7 +11,9 @@
   "dependencies": {
     "next": "14.2.32",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "@deepertr/types": "0.1.0",
+    "@deepertr/ui": "0.1.0"
   },
   "devDependencies": {
     "typescript": "^5.8.2",
