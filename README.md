@@ -25,4 +25,16 @@ Frontend, GitHub Actions ortamında otomatik olarak `https://o-g3n.github.io/Dee
 
 - kullanıcı adı: `o_g3n_admin`
 - şifre: `DeeperTR!2026`
-- admin panel yolu: `/admin`
+- admin panel yolu: `/ad-min-panel`
+
+## Firebase entegrasyon hazırlığı
+
+Backend `/api/firebase/config` endpointi üzerinden Firebase ortam değişkenlerini döner. Aşağıdaki env değişkenlerini tanımlayarak projeyi gerçek Firebase servislerine bağlayabilirsiniz:
+
+- `FIREBASE_PROJECT_ID`
+- `FIREBASE_AUTH_DOMAIN`
+- `FIREBASE_STORAGE_BUCKET`
+- `FIREBASE_MESSAGING_SENDER_ID`
+- `FIREBASE_APP_ID`
+
+Admin paneli bu endpointi okuyarak entegrasyonun hazır olup olmadığını gösterir.

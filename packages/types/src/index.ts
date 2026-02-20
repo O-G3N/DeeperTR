@@ -13,6 +13,12 @@ export type NavItemDto = {
   href: string;
 };
 
+export type BrandSettingsDto = {
+  siteName: string;
+  tagline: string;
+  logoPosition: "left" | "center" | "right";
+};
+
 export type HeroSlideDto = {
   id: string;
   genre: string;
@@ -62,6 +68,7 @@ export type CommunityBannerDto = {
 
 export type HomePageResponseDto = {
   nav: NavItemDto[];
+  brand: BrandSettingsDto;
   heroSlides: HeroSlideDto[];
   editorPick: FeaturedCardDto;
   popularSeries: FeaturedCardDto[];
@@ -101,6 +108,7 @@ export type AdminMetricDto = {
 
 export type AdminPageResponseDto = {
   metrics: AdminMetricDto[];
+  siteSettings: BrandSettingsDto;
   moderationQueue: Array<{
     id: string;
     type: string;
@@ -108,4 +116,51 @@ export type AdminPageResponseDto = {
     reporter: string;
     status: "beklemede" | "inceleniyor";
   }>;
+  chapters: Array<{
+    id: string;
+    title: string;
+    series: string;
+    status: "yayinda" | "taslak";
+  }>;
+  users: Array<{
+    id: string;
+    username: string;
+    role: "uye" | "editor" | "admin";
+    isBanned: boolean;
+  }>;
+  comments: Array<{
+    id: string;
+    author: string;
+    content: string;
+    chapterRef: string;
+  }>;
+};
+
+export type AdminActionType = "chapter-upload" | "chapter-delete" | "user-ban" | "comment-delete" | "site-settings-update";
+
+export type AdminActionRequestDto = {
+  type: AdminActionType;
+  targetId?: string;
+  payload?: {
+    title?: string;
+    series?: string;
+    siteName?: string;
+    tagline?: string;
+    logoPosition?: "left" | "center" | "right";
+  };
+};
+
+export type AdminActionResultDto = {
+  ok: boolean;
+  message: string;
+  dashboard: AdminPageResponseDto;
+};
+
+export type FirebaseConfigDto = {
+  enabled: boolean;
+  projectId: string;
+  authDomain: string;
+  storageBucket: string;
+  messagingSenderId: string;
+  appId: string;
 };

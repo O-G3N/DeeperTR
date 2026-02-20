@@ -14,6 +14,12 @@ const baseSeries: FeaturedCardDto[] = [
   { id: "opm", title: "One Punch Man", chapters: 195, score: 9, accent: "#E5C51C", status: "devam-ediyor" }
 ];
 
+const brandSettings = {
+  siteName: "TSUKI",
+  tagline: "PROJECT",
+  logoPosition: "left" as const
+};
+
 export const homePageData: HomePageResponseDto = {
   nav: [
     { label: "Anasayfa", href: "/index.html" },
@@ -21,8 +27,8 @@ export const homePageData: HomePageResponseDto = {
     { label: "Takvim", href: "/main/takvim" },
     { label: "Topluluk", href: "/main/topluluk" },
     { label: "Profil", href: "/main/uye/profil" },
-    { label: "Admin", href: "/main/admin" }
   ],
+  brand: brandSettings,
   heroSlides: [
     {
       id: "one-piece",
@@ -91,8 +97,20 @@ export const adminPageData: AdminPageResponseDto = {
     { label: "Bekleyen Seri", value: "42", trend: "-1.5%" },
     { label: "Rapor", value: "19", trend: "+0.4%" }
   ],
+  siteSettings: brandSettings,
   moderationQueue: [
     { id: "m1", type: "Yorum", target: "Blue Lock #242", reporter: "kei0", status: "beklemede" },
     { id: "m2", type: "Profil", target: "user/voidline", reporter: "adminbot", status: "inceleniyor" }
+  ],
+  chapters: [
+    { id: "ch-berserk-1", title: "1. Bölüm", series: "Berserk", status: "yayinda" },
+    { id: "ch-jjk-241", title: "241. Bölüm", series: "Jujutsu Kaisen", status: "yayinda" }
+  ],
+  users: [
+    { id: "user-og3n", username: "o_g3n_admin", role: "admin", isBanned: false },
+    { id: "user-kai", username: "kai_reader", role: "uye", isBanned: false }
+  ],
+  comments: [
+    { id: "c1", author: "kai_reader", content: "Bu bölüm efsaneydi!", chapterRef: "JJK #241" }
   ]
 };
