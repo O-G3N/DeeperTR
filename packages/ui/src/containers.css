@@ -1,0 +1,23 @@
+.page-container {
+  width: min(1200px, calc(100% - var(--space-8)));
+  margin-inline: auto;
+}
+
+.section-container {
+  padding-block: var(--space-10);
+}
+
+.card-container {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+
+.panel-container {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}

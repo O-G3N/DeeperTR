@@ -1,0 +1,28 @@
+@import '../../../packages/ui/src/tokens.css';
+@import '../../../packages/ui/src/visuals.css';
+@import '../../../packages/ui/src/containers.css';
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+  background: var(--color-bg-canvas);
+  color: var(--color-text-primary);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: var(--line-height-tight);
+}
+
+p {
+  margin: 0;
+  line-height: var(--line-height-normal);
+  color: var(--color-text-secondary);
+}
