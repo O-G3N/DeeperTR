@@ -1,0 +1,17 @@
+{
+  "name": "deepertr",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev --workspace @deepertr/web",
+    "dev:api": "npm run dev --workspace @deepertr/api",
+    "dev": "concurrently \"npm run dev:web\" \"npm run dev:api\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
