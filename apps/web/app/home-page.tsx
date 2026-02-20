@@ -1,16 +1,18 @@
+import type { HomePageResponseDto } from "@deepertr/types";
 import Link from "next/link";
 import { BookIcon, ChevronRightIcon, HeartIcon } from "../components/icons";
 import { Footer, SiteHeader } from "../components/site-layout";
-import { homePageData } from "./mock-data";
+import { getApiData } from "./api-client";
 
-export function HomePageContent() {
+export async function HomePageContent() {
+  const homePageData = await getApiData<HomePageResponseDto>("/api/home");
   const hero = homePageData.heroSlides[0];
 
   return (
     <main className="page-shell">
-      <SiteHeader nav={homePageData.nav} />
+      <SiteHeader nav={homePageData.nav} brand={homePageData.brand} />
 
-      <section className="container hero-grid">
+      <section className="container hero-grid dynamic-surface">
         <article className="panel hero-main">
           <span className="pill">{hero.genre}</span>
           <h1>{hero.title}</h1>
@@ -33,7 +35,7 @@ export function HomePageContent() {
         </aside>
       </section>
 
-      <section className="container">
+      <section className="container dynamic-surface">
         <h2>Popüler Seriler</h2>
         <div className="cards-row">
           {homePageData.popularSeries.map((item) => (
@@ -46,13 +48,15 @@ export function HomePageContent() {
         </div>
       </section>
 
-      <section className="container panel community">
+      <section className="container panel community dynamic-surface">
         <h3>{homePageData.communityBanner.title}</h3>
         <p>{homePageData.communityBanner.description}</p>
-        <button className="white-pill">{homePageData.communityBanner.ctaLabel}</button>
+        <Link href="/main/topluluk" className="white-pill">
+          {homePageData.communityBanner.ctaLabel}
+        </Link>
       </section>
 
-      <section className="container list-grid">
+      <section className="container list-grid dynamic-surface">
         <article className="panel">
           <h3>Son Yüklenenler</h3>
           {homePageData.latestReleases.map((release) => (

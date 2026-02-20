@@ -1,5 +1,5 @@
 import { HomePageContent } from "../home-page";
 
-export default function HtmlIndexPage() {
+export default async function HtmlIndexPage() {
   return <HomePageContent />;
 }
