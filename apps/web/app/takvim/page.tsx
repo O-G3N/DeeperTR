@@ -1,14 +1,5 @@
-import { SiteHeader } from "../../components/site-layout";
-import { homePageData } from "../mock-data";
+import { redirect } from "next/navigation";
 
-export default function TakvimPage() {
-  return (
-    <main className="page-shell">
-      <SiteHeader nav={homePageData.nav} />
-      <section className="container panel">
-        <h1>Takvim</h1>
-        <p>Yaklaşan bölüm yayınları burada listelenecek.</p>
-      </section>
-    </main>
-  );
+export default function LegacyTakvimPage() {
+  redirect("/main/takvim");
 }

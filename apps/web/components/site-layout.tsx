@@ -9,7 +9,7 @@ type NavItem = {
 export function SiteHeader({ nav }: { nav: NavItem[] }) {
   return (
     <header className="container header">
-      <Link href="/" className="brand">
+      <Link href="/index.html" className="brand">
         <span className="brand-dot" />
         <div>
           <strong>TSUKI</strong>
@@ -28,7 +28,9 @@ export function SiteHeader({ nav }: { nav: NavItem[] }) {
           <SearchIcon />
           <input aria-label="Ara" placeholder="Seri ara..." />
         </label>
-        <button className="white-pill">Giriş</button>
+        <Link href="/main/login" className="white-pill">
+          Giriş
+        </Link>
       </div>
     </header>
   );
