@@ -1,15 +1,13 @@
-import type { HomePageResponseDto } from "@deepertr/types";
 import { BookIcon, ChevronRightIcon, HeartIcon } from "../components/icons";
 import { Footer, SiteHeader } from "../components/site-layout";
-import { getApiData } from "./api-client";
+import { homePageData } from "./mock-data";
 
-export default async function HomePage() {
-  const data = await getApiData<HomePageResponseDto>("/api/home");
-  const hero = data.heroSlides[0];
+export default function HomePage() {
+  const hero = homePageData.heroSlides[0];
 
   return (
     <main className="page-shell">
-      <SiteHeader nav={data.nav} />
+      <SiteHeader nav={homePageData.nav} />
 
       <section className="container hero-grid">
         <article className="panel hero-main">
@@ -26,8 +24,8 @@ export default async function HomePage() {
 
         <aside className="panel hero-side">
           <span className="editor-pill">Editörün Seçimi</span>
-          <h3>{data.editorPick.title}</h3>
-          <p>Skor: {data.editorPick.score} / 10</p>
+          <h3>{homePageData.editorPick.title}</h3>
+          <p>Skor: {homePageData.editorPick.score} / 10</p>
           <button className="white-pill">
             Hemen Oku <ChevronRightIcon />
           </button>
@@ -37,7 +35,7 @@ export default async function HomePage() {
       <section className="container">
         <h2>Popüler Seriler</h2>
         <div className="cards-row">
-          {data.popularSeries.map((item) => (
+          {homePageData.popularSeries.map((item) => (
             <article key={item.id} className="series-card" style={{ background: item.accent }}>
               <small>{item.chapters}</small>
               <h3>{item.title}</h3>
@@ -48,15 +46,15 @@ export default async function HomePage() {
       </section>
 
       <section className="container panel community">
-        <h3>{data.communityBanner.title}</h3>
-        <p>{data.communityBanner.description}</p>
-        <button className="white-pill">{data.communityBanner.ctaLabel}</button>
+        <h3>{homePageData.communityBanner.title}</h3>
+        <p>{homePageData.communityBanner.description}</p>
+        <button className="white-pill">{homePageData.communityBanner.ctaLabel}</button>
       </section>
 
       <section className="container list-grid">
         <article className="panel">
           <h3>Son Yüklenenler</h3>
-          {data.latestReleases.map((release) => (
+          {homePageData.latestReleases.map((release) => (
             <div key={release.id} className="row-item">
               <div>
                 <strong>{release.series}</strong>
@@ -69,7 +67,7 @@ export default async function HomePage() {
         <aside>
           <article className="panel mb16">
             <h3>Güncel Takvim</h3>
-            {data.schedule.map((item) => (
+            {homePageData.schedule.map((item) => (
               <div key={item.id} className="row-item">
                 <div>
                   <strong>{item.series}</strong>
@@ -81,14 +79,14 @@ export default async function HomePage() {
           </article>
           <article className="panel support">
             <HeartIcon />
-            <h3>{data.support.title}</h3>
-            <p>{data.support.description}</p>
-            <button className="white-pill">{data.support.ctaLabel}</button>
+            <h3>{homePageData.support.title}</h3>
+            <p>{homePageData.support.description}</p>
+            <button className="white-pill">{homePageData.support.ctaLabel}</button>
           </article>
         </aside>
       </section>
 
-      <Footer tags={data.tags} />
+      <Footer tags={homePageData.tags} />
     </main>
   );
 }
