@@ -1,20 +1,17 @@
-import type { AdminPageResponseDto } from "@deepertr/types";
 import { SiteHeader } from "../../components/site-layout";
-import { getApiData } from "../api-client";
+import { adminPageData, homePageData, memberProfileData } from "../mock-data";
 
-export default async function AdminPage() {
-  const [home, admin] = await Promise.all([
-    getApiData<{ nav: Array<{ label: string; href: string }> }>("/api/home"),
-    getApiData<AdminPageResponseDto>("/api/admin/dashboard")
-  ]);
-
+export default function AdminPage() {
   return (
     <main className="page-shell">
-      <SiteHeader nav={home.nav} />
+      <SiteHeader nav={homePageData.nav} />
       <section className="container panel">
         <h1>Admin Panel</h1>
+        <p>
+          Giriş yapan kullanıcı: <strong>{memberProfileData.username}</strong> ({memberProfileData.role})
+        </p>
         <div className="metric-grid">
-          {admin.metrics.map((metric) => (
+          {adminPageData.metrics.map((metric) => (
             <article key={metric.label} className="panel metric-item">
               <small>{metric.label}</small>
               <strong>{metric.value}</strong>
@@ -23,9 +20,11 @@ export default async function AdminPage() {
           ))}
         </div>
         <h3>Moderasyon Kuyruğu</h3>
-        {admin.moderationQueue.map((item) => (
+        {adminPageData.moderationQueue.map((item) => (
           <div key={item.id} className="row-item">
-            <strong>{item.type}: {item.target}</strong>
+            <strong>
+              {item.type}: {item.target}
+            </strong>
             <small>{item.status}</small>
           </div>
         ))}

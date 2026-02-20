@@ -1,27 +1,21 @@
-import type { MemberProfileDto } from "@deepertr/types";
 import { SiteHeader } from "../../../components/site-layout";
-import { getApiData } from "../../api-client";
+import { homePageData, memberProfileData } from "../../mock-data";
 
-export default async function ProfilePage() {
-  const [home, profile] = await Promise.all([
-    getApiData<{ nav: Array<{ label: string; href: string }> }>("/api/home"),
-    getApiData<MemberProfileDto>("/api/member/profile")
-  ]);
-
+export default function ProfilePage() {
   return (
     <main className="page-shell">
-      <SiteHeader nav={home.nav} />
+      <SiteHeader nav={homePageData.nav} />
       <section className="container panel profile">
-        <h1>{profile.username}</h1>
-        <p>{profile.bio}</p>
+        <h1>{memberProfileData.username}</h1>
+        <p>{memberProfileData.bio}</p>
         <div className="badge-row">
-          {profile.badges.map((badge) => (
+          {memberProfileData.badges.map((badge) => (
             <span key={badge}>{badge}</span>
           ))}
         </div>
         <h3>Okuma Listesi</h3>
         <div className="cards-row">
-          {profile.readingList.map((series) => (
+          {memberProfileData.readingList.map((series) => (
             <article key={series.id} className="series-card" style={{ background: series.accent }}>
               <h4>{series.title}</h4>
             </article>
