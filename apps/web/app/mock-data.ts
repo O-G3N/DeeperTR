@@ -16,12 +16,12 @@ const baseSeries: FeaturedCardDto[] = [
 
 export const homePageData: HomePageResponseDto = {
   nav: [
-    { label: "Anasayfa", href: "/" },
-    { label: "Kütüphane", href: "/arsiv" },
-    { label: "Takvim", href: "/takvim" },
-    { label: "Topluluk", href: "/topluluk" },
-    { label: "Profil", href: "/uye/profil" },
-    { label: "Admin", href: "/admin" }
+    { label: "Anasayfa", href: "/index.html" },
+    { label: "Kütüphane", href: "/main/arsiv" },
+    { label: "Takvim", href: "/main/takvim" },
+    { label: "Topluluk", href: "/main/topluluk" },
+    { label: "Profil", href: "/main/uye/profil" },
+    { label: "Admin", href: "/main/admin" }
   ],
   heroSlides: [
     {

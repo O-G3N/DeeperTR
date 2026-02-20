@@ -1,14 +1,5 @@
-import { SiteHeader } from "../../components/site-layout";
-import { homePageData } from "../mock-data";
+import { redirect } from "next/navigation";
 
-export default function ToplulukPage() {
-  return (
-    <main className="page-shell">
-      <SiteHeader nav={homePageData.nav} />
-      <section className="container panel">
-        <h1>Topluluk</h1>
-        <p>Discord, ekip alımları ve öneriler bu sayfada.</p>
-      </section>
-    </main>
-  );
+export default function LegacyToplulukPage() {
+  redirect("/main/topluluk");
 }
