@@ -9,7 +9,10 @@
   "scripts": {
     "dev:web": "npm run dev --workspace @deepertr/web",
     "dev:api": "npm run dev --workspace @deepertr/api",
-    "dev": "concurrently \"npm run dev:web\" \"npm run dev:api\""
+    "dev": "concurrently \"npm run dev:web\" \"npm run dev:api\"",
+    "build:web": "npm run build --workspace @deepertr/web",
+    "export:web": "NEXT_PUBLIC_STATIC_MODE=true npm run build --workspace @deepertr/web",
+    "deploy:prepare": "npm run export:web"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"

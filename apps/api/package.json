@@ -8,7 +8,8 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
-    "fastify": "^5.2.1"
+    "fastify": "^5.2.1",
+    "@deepertr/types": "0.1.0"
   },
   "devDependencies": {
     "tsx": "^4.19.3",
