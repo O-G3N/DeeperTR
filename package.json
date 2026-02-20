@@ -1,0 +1,14 @@
+{
+  "name": "deepertr-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/frontend",
+    "apps/backend"
+  ],
+  "scripts": {
+    "lint": "npm run lint --workspaces --if-present",
+    "format:check": "npm run format:check --workspaces --if-present",
+    "type-check": "npm run type-check --workspaces --if-present",
+    "ci:verify": "npm run lint && npm run format:check && npm run type-check"
+  }
+}
