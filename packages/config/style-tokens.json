@@ -1,0 +1,12 @@
+{
+  "color": {
+    "primary": "#3B82F6",
+    "background": "#0F172A",
+    "surface": "#1E293B"
+  },
+  "radius": {
+    "sm": "4px",
+    "md": "8px",
+    "lg": "12px"
+  }
+}
